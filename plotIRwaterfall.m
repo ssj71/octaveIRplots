@@ -21,10 +21,8 @@ ff = f' * ones (1, length (t));
 tt = ones (length (f), 1) * t;
 Sdb = 20*log10(abs(S'));
 %TODO: may want to smooth it a bit 
-zmx = max(max(Sdb))
-min(min(Sdb))
+zmx = max(max(Sdb));
 Sdb = Sdb.*(Sdb>(zmx-dynrange)) + (zmx-1.01*dynrange)*(Sdb<=(zmx-dynrange));
-min(min(Sdb))
 srf = waterfall (tt', ff', Sdb);%a minor offset is added to avoid 0 values on the log scale
 ax = get(srf,'parent');
 set(ax,'yscale','log');

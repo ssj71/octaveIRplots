@@ -19,8 +19,10 @@ hold on
 plotIREQ(y,fs);
 plotIREQ(y2,fs,'g');
 plotIREQ(y3,fs,'r');
+ylim([-20 25]);
 legend('untreated','no paper', 'paper')
 hold off
+%print("-dpng","eq.png");
 
 % smoothed version
 figure(2)
@@ -31,21 +33,28 @@ figure(2)
     [ys3 x3] = fftdecimate(20*log10(abs(fft(y3(:,1)))), fs,dec, skip);
     semilogx( x1,ys1, x2,ys2, x3,ys3);
 
+ylim([-20 25]);
 xlim([20 20000])
 title('Frequency response')
 xlabel('Hz')
 ylabel('dB')
 legend('untreated','no paper', 'paper')
 grid('on')
+%print("-dpng","eq_smooth.png");
 
 
 %spectrogram
 figure(3)
 plotIRwaterfall(y,fs);
 title("Before")
+%print("-dpng","untreated_waterfall.png");
 
 figure(4) 
+plotIRwaterfall(y2,fs);
+title("Unfaced")
+%print("-dpng","nopaper_waterfall.png");
+
+figure(5) 
 plotIRwaterfall(y3,fs);
-title("After")
-
-
+title("With Paper")
+%print("-dpng","paper_waterfall.png"); 
