@@ -1,0 +1,12 @@
+a bunch of convenience functions for plotting IRs in GNU octave. I do this often enough that I finally made something semi-official
+
+look at plotmyIRs for an example of useage for comparing multiple files. The IR measurements I used for this script are included so you can run plotMyIRs.
+
+plotIREQ makes a plot of the magnitude of the frequency response
+plotIRwaterfall makes a plot of the time behavior in the lower region (you can easily make it show any region)
+fftdecinamte - mostly used internally, approximately downsamples per decade so that you can make cleaner plots on a semilog scale
+
+![screenshot](https://raw.github.com/ssj71/octaveIRplots/master/eq_smooth.png "example of smoothed IR EQ plots"
+![screenshot](https://raw.github.com/ssj71/octaveIRplots/master/epaper_waterfall.png "example waterfall plot"
+
+There's a decent chance of a calulation error in here so no warranty offered or implied. 
